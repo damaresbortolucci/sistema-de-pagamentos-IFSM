@@ -48,7 +48,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 	public BasePlusCommissionEmployeeGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(BasePlusCommissionEmployeeGUI.class.getResource("/img/Group2_Buyers_Dark.png")));
 		setResizable(false);
-		setTitle("Cadastrar Funcionário Comissionado e Salário Base");
+		setTitle("Cadastrar Funcion�rio Comissionado e Sal�rio Base");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 546, 558);
 		contentPane = new JPanel();
@@ -86,7 +86,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 				try {
 					grossSales = Double.parseDouble(vendaTotal);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Venda inválida");
+					JOptionPane.showMessageDialog(null, "Venda inv�lida");
 					return;
 				}
 				
@@ -94,7 +94,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 				try {
 					commissionRate = Double.parseDouble(taxaComissao);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Taxa de Comissão inválida");
+					JOptionPane.showMessageDialog(null, "Taxa de Comiss�o inv�lida");
 					return;
 				}
 				
@@ -102,7 +102,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 				try {
 					baseSalary = Double.parseDouble(salarioBase);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Salário base inválido");
+					JOptionPane.showMessageDialog(null, "Sal�rio base inv�lido");
 					return;
 				}
 				
@@ -110,10 +110,13 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 				BasePlusCommissionEmployee salaried = new BasePlusCommissionEmployee(firstName,lastName,cpf,grossSales,commissionRate,baseSalary);
 				
 				/* Adicionar na minha Lista */
-				ControllerPayable.getInstance().Add(salaried);
-				//System.out.print(ControllerEmployee.getInstance().ListAll());
+				boolean resposta = ControllerPayable.getInstance().Add(salaried);
 				
-				JOptionPane.showMessageDialog(null,  salaried.toString() + "\nincluído com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				if(resposta) {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n inclu�do com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 				
 				/* Limpar o JTexfield */
 				textFieldFirstName.setText("");
@@ -205,7 +208,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 		panel.add(textFieldVendaTotal);
 		textFieldVendaTotal.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Taxa de Comissão");
+		JLabel lblNewLabel_4 = new JLabel("Taxa de Comiss�o");
 		lblNewLabel_4.setBounds(24, 75, 105, 14);
 		panel.add(lblNewLabel_4);
 		
@@ -214,7 +217,7 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 		panel.add(textFieldTaxaComissao);
 		textFieldTaxaComissao.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("Salário Base");
+		JLabel lblNewLabel_5 = new JLabel("Sal�rio Base");
 		lblNewLabel_5.setBounds(24, 138, 173, 14);
 		panel.add(lblNewLabel_5);
 		
@@ -228,5 +231,5 @@ public class BasePlusCommissionEmployeeGUI extends JFrame {
 		lblNewLabel_6.setBounds(416, 12, 88, 88);
 		panel.add(lblNewLabel_6);
 		contentPane.setLayout(gl_contentPane);
-	} //fim do método
+	} 
 }

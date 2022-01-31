@@ -98,7 +98,7 @@ public class MainGUI {
 		JMenu mnMenuCadastro = new JMenu("Cadastro");
 		menuBar.add(mnMenuCadastro);
 		
-		JMenu mnMenuFuncionarios = new JMenu("FuncionÃ¡rios");
+		JMenu mnMenuFuncionarios = new JMenu("Funcinários");
 		mnMenuCadastro.add(mnMenuFuncionarios);
 		
 		JMenuItem mntmMenuItemAssalariado = new JMenuItem("Assalariado");
@@ -127,7 +127,7 @@ public class MainGUI {
 		mntmMenuItemComissionados.setIcon(new ImageIcon(MainGUI.class.getResource("/img/Group2_Buyers_Dark.png")));
 		mnMenuFuncionarios.add(mntmMenuItemComissionados);
 		
-		JMenuItem mntmMenuItemComissionadoSalarioFixo = new JMenuItem("Comissionado e SalÃ¡rio Fixo");
+		JMenuItem mntmMenuItemComissionadoSalarioFixo = new JMenuItem("Comissionado e Salário Fixo");
 		mntmMenuItemComissionadoSalarioFixo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -165,10 +165,10 @@ public class MainGUI {
 		});
 		mnMenuCadastro.add(mntmMenuItemInvoice);
 		
-		JMenu mnMenuRelatorio = new JMenu("RelatÃ³rio");
+		JMenu mnMenuRelatorio = new JMenu("Relatório");
 		menuBar.add(mnMenuRelatorio);
 		
-		JMenuItem mntmMenuItemRelatorioPagamento = new JMenuItem("RelatÃ³rios");
+		JMenuItem mntmMenuItemRelatorioPagamento = new JMenuItem("Relatórios");
 		mntmMenuItemRelatorioPagamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

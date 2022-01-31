@@ -42,7 +42,7 @@ public class HourlyEmployee extends Employee {
 
 	@Override
 	public String toString() {
-		String s = String.format("Funcionario horista: %s, horas semanais: %s e sal√°rio por hora: %s", super.toString(), getHours(), getWage());
+		String s = String.format("Funcion·rio horista: %s, horas semanais: %s e sal·rio por hora: %s", super.toString(), getHours(), getWage());
 		return s;
 	}
 

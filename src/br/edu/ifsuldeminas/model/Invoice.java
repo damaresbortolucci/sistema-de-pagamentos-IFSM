@@ -57,7 +57,7 @@ public class Invoice implements Payable {
 	
 	@Override
 	public String toString() {
-		String s = String.format("Invoice numero: %s com a descriÃ§Ã£o: %s e quantidade %s com preÃ§o unitÃ¡rio %s", getPartNumber(),  getPartDescription(), getQuantity(), getPricePerItem());
+		String s = String.format("Invoice número: %s com a descrição: %s e quantidade %s com preço unitário %s", getPartNumber(),  getPartDescription(), getQuantity(), getPricePerItem());
 		return s;
 	}
 	 

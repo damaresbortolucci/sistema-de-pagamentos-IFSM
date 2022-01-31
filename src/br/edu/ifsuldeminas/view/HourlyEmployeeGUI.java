@@ -46,7 +46,7 @@ public class HourlyEmployeeGUI extends JFrame {
 	public HourlyEmployeeGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HourlyEmployeeGUI.class.getResource("/img/Group2_Buyers_Dark.png")));
 		setResizable(false);
-		setTitle("Cadastrar FuncionÃ¡rio Horista");
+		setTitle("Cadastrar Funcionário Horista");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 546, 455);
 		contentPane = new JPanel();
@@ -83,7 +83,7 @@ public class HourlyEmployeeGUI extends JFrame {
 				try {
 					wage = Double.parseDouble(salarioHora);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "SalÃ¡rio por hora invÃ¡lido");
+					JOptionPane.showMessageDialog(null, "Salário por hora inválido");
 					return;
 				}
 				
@@ -91,7 +91,7 @@ public class HourlyEmployeeGUI extends JFrame {
 				try {
 					hours = Double.parseDouble(horasTrabalhadas);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Horas trabalhadas invÃ¡lida");
+					JOptionPane.showMessageDialog(null, "Horas trabalhadas inválida");
 					return;
 				}
 				
@@ -99,10 +99,14 @@ public class HourlyEmployeeGUI extends JFrame {
 				HourlyEmployee salaried = new HourlyEmployee(firstName,lastName,cpf,wage,hours);
 				
 				/* Adicionar na minha Lista */
-				ControllerPayable.getInstance().Add(salaried);
-				//System.out.print(ControllerEmployee.getInstance().ListAll());
+				boolean resposta = ControllerPayable.getInstance().Add(salaried);
 				
-				JOptionPane.showMessageDialog(null,  salaried.toString() + "\nincluÃ­do com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				//System.out.print(ControllerEmployee.getInstance().ListAll());
+				if(resposta) {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\nincluído com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 				
 				/* Limpar o JTexfield */
 				textFieldFirstName.setText("");
@@ -184,7 +188,7 @@ public class HourlyEmployeeGUI extends JFrame {
 		);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_3 = new JLabel("SalÃ¡rio por Hora");
+		JLabel lblNewLabel_3 = new JLabel("Salário por Hora");
 		lblNewLabel_3.setBounds(27, 11, 105, 14);
 		panel.add(lblNewLabel_3);
 		

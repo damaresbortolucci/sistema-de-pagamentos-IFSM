@@ -5,12 +5,16 @@ public class SalariedEmployee extends Employee {
 	private double weeklySalary;
 	
 	public SalariedEmployee(String firstName, String lastName, String cpf, double weeklySalary) {
-		// TODO Auto-generated constructor stub
 		super(firstName,lastName,cpf);
 		
 		this.weeklySalary = weeklySalary;
 	}
 	
+	public SalariedEmployee(int id, String firstName, String lastName, String cpf, double weeklySalary) {
+		super(id, firstName,lastName,cpf);
+		
+		this.weeklySalary = weeklySalary;
+	}
 	
 
 	public double getWeeklySalary() {
@@ -27,7 +31,7 @@ public class SalariedEmployee extends Employee {
 	
 	@Override
 	public String toString() {
-		String s = String.format("Funcionario assalariado: %s, sal√°rio semanal: %s", super.toString(), getWeeklySalary());
+		String s = String.format("Funcion·rio assalariado: %s, sal·rio semanal: %s", super.toString(), getWeeklySalary());
 		return s;
 		
 	}

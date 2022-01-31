@@ -41,7 +41,7 @@ public class SalariedEmployeeGUI extends JFrame {
 	public SalariedEmployeeGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SalariedEmployeeGUI.class.getResource("/img/Group2_Buyers_Dark.png")));
 		setResizable(false);
-		setTitle("Cadastrar Funcion√°rio Assalariado");
+		setTitle("Cadastrar Funcion·rio Assalariado");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 546, 434);
 		contentPane = new JPanel();
@@ -63,7 +63,7 @@ public class SalariedEmployeeGUI extends JFrame {
 		textFieldCpf = new JTextField();
 		textFieldCpf.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Sal√°rio Semanal");
+		JLabel lblNewLabel_3 = new JLabel("Sal·rio Semanal");
 		
 		textFieldSalarioMensal = new JTextField();
 		textFieldSalarioMensal.setColumns(10);
@@ -82,7 +82,7 @@ public class SalariedEmployeeGUI extends JFrame {
 				try {
 					weeklySalary = Double.parseDouble(salario);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Sal√°rio inv√°lido");
+					JOptionPane.showMessageDialog(null, "Sal·rio inv·lido");
 					return;
 				}
 				
@@ -90,10 +90,14 @@ public class SalariedEmployeeGUI extends JFrame {
 				SalariedEmployee salaried = new SalariedEmployee(firstName, lastName, cpf, weeklySalary);
 				
 				/* Adicionar na minha Lista */
-				ControllerPayable.getInstance().Add(salaried);
-				//System.out.print(ControllerEmployee.getInstance().ListAll());
+				boolean resposta = ControllerPayable.getInstance().Add(salaried);
 				
-				JOptionPane.showMessageDialog(null,  salaried.toString() + "\ninclu√≠do com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				if(resposta) {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n incluÌdo com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
+				
 				
 				/* Limpar o JTexfield */
 				textFieldFirstName.setText("");
@@ -170,5 +174,5 @@ public class SalariedEmployeeGUI extends JFrame {
 		gl_contentPane.linkSize(SwingConstants.VERTICAL, new Component[] {btnIncluir, btnCancelar});
 		gl_contentPane.linkSize(SwingConstants.HORIZONTAL, new Component[] {btnIncluir, btnCancelar});
 		contentPane.setLayout(gl_contentPane);
-	} //fim do m√©todo
+	}
 }

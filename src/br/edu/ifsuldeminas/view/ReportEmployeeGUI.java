@@ -47,7 +47,7 @@ public class ReportEmployeeGUI extends JFrame {
 	 */
 	public ReportEmployeeGUI() {
 		setResizable(false);
-		setTitle("Relat贸rios de Pagamentos");
+		setTitle("Relat髍ios de Pagamentos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 906, 477);
 		contentPane = new JPanel();
@@ -59,7 +59,7 @@ public class ReportEmployeeGUI extends JFrame {
 		panelSul.setPreferredSize(new Dimension(60, 60));
 		contentPane.add(panelSul, BorderLayout.SOUTH);
 		
-		JButton btnExecutarRelatorio = new JButton("Executar Relat贸rio");
+		JButton btnExecutarRelatorio = new JButton("Executar Relat髍io");
 		btnExecutarRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -68,7 +68,7 @@ public class ReportEmployeeGUI extends JFrame {
 				/* recupero a lista de Payable */
 				List<Payable> listPayable = ControllerPayable.getInstance().ListAll();
 				
-				/* C贸digo para popular a JTable */
+				/* C骴igo para popular a JTable */
 				DefaultTableModel modelo = (DefaultTableModel) table.getModel();
 				table.setModel(modelo);
 				
@@ -147,7 +147,7 @@ public class ReportEmployeeGUI extends JFrame {
 		panelNorte.setPreferredSize(new Dimension(60, 60));
 		contentPane.add(panelNorte, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel = new JLabel("Relat贸rio de Pagamentos");
+		JLabel lblNewLabel = new JLabel("Relat髍io de Pagamentos");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		GroupLayout gl_panelNorte = new GroupLayout(panelNorte);
 		gl_panelNorte.setHorizontalGroup(
@@ -178,7 +178,7 @@ public class ReportEmployeeGUI extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Tipo", "FirstName", "LastName", "N\u00FAmero da Nota", "Descri\u00E7\u00E3o", "Pagamento"
+				"Tipo", "FirstName", "LastName", "N鷐ero da Nota", "Descri玢o", "Pagamento"
 			}
 		) {
 			/**

@@ -3,6 +3,7 @@ package br.edu.ifsuldeminas.model;
 
 public abstract class Employee implements Payable {
 
+	private int id;
 	private  String firstName;
 	private  String lastName;
 	private  String cpf; //para o nosso exemplo será o cpf
@@ -13,6 +14,23 @@ public abstract class Employee implements Payable {
 		this.cpf = cpf;
 	}
 	
+	public Employee(int id,String firstName, String lastName, String cpf) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.cpf = cpf;
+		this.setId(id);
+	}
+
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 	public String getFirstName() {
@@ -52,9 +70,10 @@ public abstract class Employee implements Payable {
 
 
 	public String toString() {
-		String s = String.format("%s %s CPF número: %s", getFirstName(), getLastName(), getCpf());
+		String s = String.format("%s %s CPF n�mero: %s", getFirstName(), getLastName(), getCpf());
 		return s;
 	}
-	
+
+
 
 }

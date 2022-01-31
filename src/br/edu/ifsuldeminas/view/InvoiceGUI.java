@@ -77,7 +77,7 @@ public class InvoiceGUI extends JFrame {
 				try {
 					quantity = Integer.parseInt(quantityString);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Quantidade inv√°lida");
+					JOptionPane.showMessageDialog(null, "Quantidade inv·lida");
 					return;
 				}
 				
@@ -85,7 +85,7 @@ public class InvoiceGUI extends JFrame {
 				try {
 					pricePerItem = Double.parseDouble(pricePerItemString);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Pre√ßo por item inv√°lido");
+					JOptionPane.showMessageDialog(null, "PreÁo por item inv·lido");
 					return;
 				}
 				
@@ -93,10 +93,13 @@ public class InvoiceGUI extends JFrame {
 				Invoice invoice = new Invoice(partNumber,partDescription,quantity,pricePerItem);
 				
 				/* Adicionar na minha Lista */
-				ControllerPayable.getInstance().Add(invoice);
+				boolean resposta = ControllerPayable.getInstance().Add(invoice);
 			
-				
-				JOptionPane.showMessageDialog(null,  invoice.toString() + "\ninclu√≠do com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				if(resposta) {
+					JOptionPane.showMessageDialog(null,  invoice.toString() + "\n incluÌdo com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,  invoice.toString() + "\n Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
 				
 				/* Limpar o JTexfield */
 				textFieldPartNumber.setText("");
@@ -191,5 +194,5 @@ public class InvoiceGUI extends JFrame {
 		panel.add(textFieldPricePerItem);
 		textFieldPricePerItem.setColumns(10);
 		contentPane.setLayout(gl_contentPane);
-	} //fim do m√©todo
+	} 
 }

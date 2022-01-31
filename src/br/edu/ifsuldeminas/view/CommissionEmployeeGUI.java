@@ -46,7 +46,7 @@ public class CommissionEmployeeGUI extends JFrame {
 	public CommissionEmployeeGUI() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CommissionEmployeeGUI.class.getResource("/img/Group2_Buyers_Dark.png")));
 		setResizable(false);
-		setTitle("Cadastrar Funcion√°rio Comissionado");
+		setTitle("Cadastrar Funcion·rio Comissionado");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 546, 449);
 		contentPane = new JPanel();
@@ -82,7 +82,7 @@ public class CommissionEmployeeGUI extends JFrame {
 				try {
 					grossSales = Double.parseDouble(vendaTotal);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Venda inv√°lida");
+					JOptionPane.showMessageDialog(null, "Venda inv·lida");
 					return;
 				}
 				
@@ -90,7 +90,7 @@ public class CommissionEmployeeGUI extends JFrame {
 				try {
 					commissionRate = Double.parseDouble(taxaComissao);
 				} catch(NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Taxa de Comiss√£o inv√°lida");
+					JOptionPane.showMessageDialog(null, "Taxa de Comiss„o inv·lida");
 					return;
 				}
 				
@@ -98,10 +98,16 @@ public class CommissionEmployeeGUI extends JFrame {
 				CommissionEmployee salaried = new CommissionEmployee(firstName,lastName,cpf,grossSales,commissionRate);
 				
 				/* Adicionar na minha Lista */
-				ControllerPayable.getInstance().Add(salaried);
+				boolean resposta = ControllerPayable.getInstance().Add(salaried);
 					
-				JOptionPane.showMessageDialog(null,  salaried.toString() + "\ninclu√≠do com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 				
+				if(resposta) {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n incluÌdo com sucesso !", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null,  salaried.toString() + "\n Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
+				}
+			
+			
 				/* Limpar o JTexfield */
 				textFieldFirstName.setText("");
 				textFieldLastName.setText("");
@@ -189,7 +195,7 @@ public class CommissionEmployeeGUI extends JFrame {
 		panel.add(textFieldVendaTotal);
 		textFieldVendaTotal.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Taxa de Comiss√£o");
+		JLabel lblNewLabel_4 = new JLabel("Taxa de Comiss„o");
 		lblNewLabel_4.setBounds(266, 11, 105, 14);
 		panel.add(lblNewLabel_4);
 		
